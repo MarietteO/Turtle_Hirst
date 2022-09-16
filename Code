@@ -1,4 +1,4 @@
-from turtle import Turtle, Screen
+from turtle import Turtle, Screen, colormode
 import random
 
 tim = Turtle()
@@ -15,16 +15,9 @@ color_list = [(33, 107, 168), (213, 65, 18), (110, 164, 213), (153, 57, 86), (22
               (98, 94, 3), (50, 170, 153), (40, 166, 183), (233, 167, 182), (176, 185, 221),
               (6, 110, 116)]
 
-def random_color():
-    r = random.randint(0, 255)
-    g = random.randint(0, 255)
-    b = random.randint(0, 255)
-    random_color = (r, g, b)
-    return random_color
-
 def draw_a_row():
     for _ in range(10):
-        tim.dot(20, random_color())
+        tim.dot(20, random.choice(color_list))
         tim.penup()
         tim.forward(50)
         tim.pendown()
