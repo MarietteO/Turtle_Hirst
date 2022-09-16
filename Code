@@ -1,0 +1,41 @@
+from turtle import Turtle, Screen
+import random
+
+tim = Turtle()
+screen = Screen()
+screen.setup(width=0.9, height=0.9)
+screen.colormode(255)
+tim.speed("fastest")
+
+color_list = [(33, 107, 168), (213, 65, 18), (110, 164, 213), (153, 57, 86), (220, 152, 91),
+              (241, 82, 38), (20, 133, 57), (245, 206, 76), (189, 157, 43), (224, 118, 152),
+              (44, 50, 125), (221, 66, 96), (111, 198, 155), (160, 33, 19), (96, 113, 193),
+              (252, 202, 0), (74, 40, 32), (114, 41, 55), (154, 212, 200), (39, 31, 66),
+              (248, 155, 143), (46, 36, 47), (4, 112, 45), (152, 210, 220), (34, 55, 44),
+              (98, 94, 3), (50, 170, 153), (40, 166, 183), (233, 167, 182), (176, 185, 221),
+              (6, 110, 116)]
+
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    random_color = (r, g, b)
+    return random_color
+
+def draw_a_row():
+    for _ in range(10):
+        tim.dot(20, random_color())
+        tim.penup()
+        tim.forward(50)
+        tim.pendown()
+
+coordinate = -250
+
+for _ in range(10):
+    tim.penup()
+    tim.goto(-250, coordinate)
+    tim.pendown()
+    draw_a_row()
+    coordinate += 50
+
+screen.exitonclick()
